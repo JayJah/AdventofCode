@@ -21,8 +21,8 @@ int calculate(int l, int w, int h){
 main(List<String> args) {
   var cont= new File('/home/jayjah/config.txt');
   int res = 0;
-  RegExp expr = new RegExp("[0,1,2,3,4,5,6,7,8,9]?[0,1,2,3,4,5,6,7,8,9]x[0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9]?x[0,1,2,3,4,5,6,7,8,9][0,1,2,3,4,5,6,7,8,9]?");
-  Iterable<Match> matches = expr.allMatches(cont);
+  RegExp expr = new RegExp("[0-9]?[0-9]x[0-9][0-9]?x[0-9][0-9]?");
+  Iterable<Match> matches = expr.allMatches(cont.readAsStringSync());
   for(Match m in matches) {
     int l,w,h = 0;
     String match = m.group(0);
